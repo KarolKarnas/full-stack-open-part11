@@ -21,3 +21,9 @@ jobs:
         run: npm run build
       - name: test jest
         run: npm run test:jest
+      - name: test e2e
+        uses: cypress-io/github-action@v5
+        with:
+          command: npm run test:e2e
+          start: npm run server
+          wait-on: http://localhost:3001
